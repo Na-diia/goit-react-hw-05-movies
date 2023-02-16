@@ -13,6 +13,7 @@ const Movies = () => {
  const [movies, setMovies] = useState([]);
  const [search, setSearch] = useState('')
  const [page, setPage] = useState(1);
+ const [error, setError] = useState(null);
 
  useEffect(() => {
     if(search) {
@@ -31,11 +32,12 @@ const Movies = () => {
         catch{
             setMovies(null);
             toast.error('Ops! Something went wrong!');
+            setError({error : error.message})
         };
     } 
     fetchSearchMovies();
    }
- }, [page, search]);
+ }, [error, page, search]);
 
  const searchFilms =(query) => {
    if(query === search) {
@@ -52,6 +54,7 @@ const Movies = () => {
 
 return (
 <Container>
+{error && <h2>Something went wrong. Try again later.</h2>}
 <SearchMovies onSubmit={searchFilms}/>
 <MoviesList movies={movies} />
 {page && movies.length !== 0 && <Button onClick={handleOnPageChange}

@@ -11,6 +11,7 @@ import { Container, MainTitle } from './home.styled';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
+  const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
   const [status, setStatus] = useState('idle');
 
@@ -25,6 +26,7 @@ const Home = () => {
         }
         catch(error) {
           setStatus('rejected');
+          setError(error.message);
         }
       }
       fetchAllMovies();
@@ -37,6 +39,7 @@ const Home = () => {
 
     return (
         <Container>
+        {error && <h2>Something went wrong. Try again later.</h2>}
         <MainTitle>Trending today:</MainTitle>
         <SkeletonTheme baseColor="#E0CEA7" highlightColor="#a5a5a5">
         {!movies ? (

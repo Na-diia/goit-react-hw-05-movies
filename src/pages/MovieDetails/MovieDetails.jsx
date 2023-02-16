@@ -10,6 +10,7 @@ import { Box, Button, CastLink, ReviewsLink } from './movie-details.styled';
 
 const MovieDetails = () => {
     const [movie, setMovie] = useState([]);
+    const [error, setError] = useState(null);
 
     const { movieId } = useParams();
     const navigate = useNavigate();
@@ -25,6 +26,7 @@ const MovieDetails = () => {
         }
         catch(error){
            setMovie(null);
+           setError(error.message);
            toast.error('Ops! Something went wrong!');
         };
       };
@@ -37,6 +39,7 @@ const MovieDetails = () => {
    
     return (
      <Box backdrop={movie.backdrop_path}>
+     {error && <h2>Something went wrong. Try again later.</h2>}
     <Button type='button' onClick={goBack}></Button>
     {!movie ? (<Loader />) : <MovieData 
      genre={genresList}
