@@ -40,8 +40,8 @@ const Cast = () => {
       {items.length >= 1 ? (<List>
         {elements}
         </List>) : (
-          <SkeletonTheme baseColor="#000000" highlightColor="#444">
-        <Title> <Skeleton count={3} />We don't have any cast for this movie.</Title>
+          <SkeletonTheme baseColor="#EFDCB2" highlightColor="#444">
+        <Title> <Skeleton count={1} />We don't have any cast for this movie.</Title>
         </SkeletonTheme>
       )}
       </div>
