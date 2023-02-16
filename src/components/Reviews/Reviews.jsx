@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css'
 
 import { getMovieReviews } from 'services/fetch-movie';
 
@@ -34,12 +32,8 @@ const Reviews = () => {
 
     return (
  <div>
-   {!reviews ? (
-        <SkeletonTheme baseColor="#E0CEA7" highlightColor="#a5a5a5">
-          <Skeleton style={{ height: 30, width: 250, marginBottom: 15 }} />
-          <Skeleton count={5} style={{ height: 20, width: 600, marginBottom: 5 }} />
-        </SkeletonTheme>
-      ) : reviews.length === 0 || isLoading ?  (<Title>We don't have any reviews for this movie.</Title>) : (
+   {reviews.length === 0 || isLoading ?  (
+   <Title>We don't have any reviews for this movie.</Title>) : (
     <ReviewsList>
     {reviews.map(({id, author, content}) => (
         <ReviewItem key={id}>

@@ -26,7 +26,7 @@ export const Box = styled.div`
     background-attachment: fixed;
     z-index: -1;
     opacity: 0.45;
-     }
+    }
 `;
 
 export const Button = styled.button`
@@ -64,6 +64,10 @@ export const CastLink = styled(NavLink)`
   &:hover, &:focus{
     font-weight: bold;
   }
+
+  &.active{
+    font-weight: bold;
+  }
 `;
 
 export const ReviewsLink = styled(NavLink)`
@@ -80,6 +84,10 @@ export const ReviewsLink = styled(NavLink)`
  &:hover, &:focus{
   font-weight: bold;
  }
+
+ &.active{
+  font-weight: bold;
+}
 `;
 
 Box.propTypes = {
