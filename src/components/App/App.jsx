@@ -1,7 +1,8 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 import Loader from "components/Loader/Loader";
 import SharedLayout from "components/SharedLayout/SharedLayout";
 
@@ -23,7 +24,7 @@ export const App = () => {
      <Route path="cast" element={<Cast />} />
      <Route path="reviews" element={<Reviews />} />
     </Route> 
-    <Route path="*" element={<Home />} />
+    <Route path="*" element={<Navigate to="/" />} />
     </Route>
     </Routes>
     </Suspense>

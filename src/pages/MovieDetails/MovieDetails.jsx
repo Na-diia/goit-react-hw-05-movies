@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect, Suspense} from 'react';
 import { Outlet, useParams, useNavigate, useLocation } from "react-router-dom";
 import { toast } from 'react-toastify';
 
@@ -52,7 +52,9 @@ const MovieDetails = () => {
      tag={movie.tagline}/>}
      <CastLink state={{from}} to={`/movies/${movieId}/cast`}>Cast</CastLink>
      <ReviewsLink state={{from}} to={`/movies/${movieId}/reviews`}>Reviews</ReviewsLink>
+     <Suspense fallback={<Loader />}>
      <Outlet />
+     </Suspense>
     </Box>
     )
 };

@@ -1,7 +1,5 @@
 import { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
 
 import { getMovieCast, baseImgUrl } from 'services/fetch-movie';
 
@@ -39,10 +37,8 @@ const Cast = () => {
       <div>
       {items.length >= 1 ? (<List>
         {elements}
-        </List>) : (
-          <SkeletonTheme baseColor="#EFDCB2" highlightColor="#444">
-        <Title> <Skeleton count={1} />We don't have any cast for this movie.</Title>
-        </SkeletonTheme>
+        </List>) : ( 
+        <Title>We don't have any cast for this movie.</Title>
       )}
       </div>
     );

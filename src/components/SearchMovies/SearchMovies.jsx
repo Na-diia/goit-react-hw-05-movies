@@ -1,33 +1,15 @@
 import PropTypes from 'prop-types';
-import { useState, memo } from 'react';
-import { toast } from 'react-toastify';
 
 import { Form, Input } from './search-movies.styled';
 
-const SearchMovies = ({onSubmit}) => {
-    const [search, setSearch] = useState('');
-
-    const handleChange = ({target})=> {
-        const {value} = target;
-        setSearch(value);
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if(search.trim() === '') {
-          toast.warn('Enter words to search for!');
-          return;
-        }
-        onSubmit(search);
-    };
-  
+const SearchMovies = ({onSubmit, search}) => {
     return ( 
-        <Form onSubmit={handleSubmit} >
+        <Form  >
          <Input type="text" 
          name="search"
          value={search}
          placeholder="Search movie" 
-         onChange={handleChange} 
+         onChange={e => onSubmit(e.target.value)}
          autoComplete='off'
          autoFocus
          required/>
@@ -35,8 +17,9 @@ const SearchMovies = ({onSubmit}) => {
     );
 };
 
-export default memo(SearchMovies);
+export default SearchMovies;
 
 SearchMovies.propTypes = {
     onSubmit : PropTypes.func.isRequired,
+    search: PropTypes.string.isRequired,
 };

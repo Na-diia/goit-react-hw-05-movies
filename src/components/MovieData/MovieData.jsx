@@ -28,7 +28,7 @@ const MovieData = ({name, img, text, release, tag, score, genre, count}) => {
       <Name>Slogan: <Span>{!tag  ? (<Span>We don't have any slogan for this movie.</Span>) : tag}</Span></Name>
       </li>
       <li>
-      <Name>Release date: <Span>{release}</Span></Name>
+      <Name>Release date: <Span>{!release ? <Span>We don't have any release for this movie.</Span> : release}</Span></Name>
       </li>
       <li>
       <Name>Genres: <Span>{!genre ? (<Span>We don't have any genre for this movie</Span>) : genre}.</Span></Name>
