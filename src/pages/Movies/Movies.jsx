@@ -36,7 +36,7 @@ const Movies = () => {
         catch{
             setMovies(null);
             toast.error('Ops! Something went wrong!');
-            setError({error : error.status})
+            setError(error)
         };
     } 
     fetchSearchMovies();
@@ -53,7 +53,7 @@ const handleOnPageChange = useCallback(page => {
 
 return (
 <Container>
-{error === 106 && <h2>Something went wrong. Try again later.</h2>}
+{error && <h2>Something went wrong. Try again later.</h2>}
 <SearchMovies search={query} onChange={searchFilms}/>
 <MoviesList movies={movies} />
 {page && movies.length !== 0 && <Button onClick={handleOnPageChange}

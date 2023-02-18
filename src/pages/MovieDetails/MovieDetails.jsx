@@ -26,7 +26,7 @@ const MovieDetails = () => {
         }
         catch(error){
            setMovie(null);
-           setError(error.status);
+           setError(error);
            toast.error('Ops! Something went wrong!');
         };
       };
@@ -39,7 +39,7 @@ const MovieDetails = () => {
    
     return (
      <Box backdrop={movie.backdrop_path}>
-     {error.status === 106 && <h2>Something went wrong. Try again later.</h2>}
+     {error && <h2>Something went wrong. Try again later.</h2>}
     <Button type='button' onClick={goBack}></Button>
     {!movie ? (<Loader />) : <MovieData 
      genre={genresList}
