@@ -28,7 +28,7 @@ export const MainTitle = styled.h2`
   font-variation-settings: "wght" 311;
   margin-bottom: 0.8rem;
   font-weight: bold;
-  margin-left: 20px;
+  margin-left: 35px;
   font-size: 28px;
   text-transform: uppercase;
   transition: 700ms ease;

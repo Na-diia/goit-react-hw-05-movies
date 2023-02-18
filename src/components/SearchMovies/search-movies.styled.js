@@ -4,7 +4,7 @@ import { GoSearch } from 'react-icons/go';
 export const Wrap = styled.div`
     margin-top: 24px;
     margin-bottom: 20px;
-    margin-left: 28px;
+    margin-left: 78px;
 
     input {
         background-color: #fff;

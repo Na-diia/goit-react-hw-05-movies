@@ -23,12 +23,12 @@ export const Item = styled.li`
             width: 15px;
             height: 15px;
         }
-    }
+    };
 `;
 
 export const List = styled.ul`
     list-style: none;
-    margin-left: 25px;
+    margin-left: 45px;
 `;
 
 export const MovieLink = styled(Link)`
