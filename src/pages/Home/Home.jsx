@@ -24,13 +24,13 @@ const Home = () => {
         setPage(page);
         setStatus('resolved');
         }
-        catch(error) {
+        catch {
           setStatus('rejected');
-          setError(error.message);
+          setError({error: error.status});
         }
       }
       fetchAllMovies();
-    }, [page]);
+    }, [error.status, page]);
 
   const handlePageChange = useCallback( 
     page => {
@@ -39,7 +39,7 @@ const Home = () => {
 
     return (
         <Container>
-        {error && <h2>Something went wrong. Try again later.</h2>}
+        {error === 106 && <h2>Something went wrong. Try again later.</h2>}
         <MainTitle>Trending today:</MainTitle>
         <SkeletonTheme baseColor="#E0CEA7" highlightColor="#a5a5a5">
         {!movies ? (

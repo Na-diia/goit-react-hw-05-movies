@@ -1,25 +1,28 @@
 import PropTypes from 'prop-types';
+import { DebounceInput } from 'react-debounce-input';
 
-import { Form, Input } from './search-movies.styled';
+import {Wrap, Icon } from './search-movies.styled';
 
-const SearchMovies = ({onSubmit, search}) => {
+const SearchMovies = ({onChange, search}) => {
     return ( 
-        <Form  >
-         <Input type="text" 
+        <Wrap >
+         <DebounceInput type="text" 
+         debounceTimeout={500}
          name="search"
          value={search}
          placeholder="Search movie" 
-         onChange={e => onSubmit(e.target.value)}
+         onChange={event => onChange(event.target.value)}
          autoComplete='off'
          autoFocus
          required/>
-        </Form>
+         <Icon />
+        </Wrap>
     );
 };
 
 export default SearchMovies;
 
 SearchMovies.propTypes = {
-    onSubmit : PropTypes.func.isRequired,
-    search: PropTypes.string.isRequired,
+    onChange : PropTypes.func,
+    search: PropTypes.string,
 };

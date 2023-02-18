@@ -36,14 +36,14 @@ const Movies = () => {
         catch{
             setMovies(null);
             toast.error('Ops! Something went wrong!');
-            setError({error : error.message})
+            setError({error : error.status})
         };
     } 
     fetchSearchMovies();
  }, [error, page, query]);
 
-const searchFilms = (query) => {
-  const nextMovies = query !== "" ? { query } : {};
+const searchFilms = query => {
+  const nextMovies =  query !== '' && { query };
   setSearchParams(nextMovies);
 };
 
@@ -53,8 +53,8 @@ const handleOnPageChange = useCallback(page => {
 
 return (
 <Container>
-{error && <h2>Something went wrong. Try again later.</h2>}
-<SearchMovies search={query} onSubmit={searchFilms}/>
+{error === 106 && <h2>Something went wrong. Try again later.</h2>}
+<SearchMovies search={query} onChange={searchFilms}/>
 <MoviesList movies={movies} />
 {page && movies.length !== 0 && <Button onClick={handleOnPageChange}
 page={page}

@@ -16,8 +16,14 @@ export const Item = styled.li`
     position: absolute;
     width: 20px;
     height: 20px;
-    left: -25px;
-}
+    left: -25px;}
+
+    @media screen and (max-width: 480px) {
+        &::before{
+            width: 15px;
+            height: 15px;
+        }
+    }
 `;
 
 export const List = styled.ul`
@@ -33,6 +39,13 @@ export const MovieLink = styled(Link)`
 
     &:hover, &:focus{
     transform: translateX(20px); 
-   }
+   };
+
+   @media screen and (max-width: 767px) {
+    font-size: 16px;
+
+    &:hover, &:focus{
+    transform: translateX(16px); };
+   };
 `;
 

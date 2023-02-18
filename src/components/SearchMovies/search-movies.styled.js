@@ -1,13 +1,13 @@
 import styled from 'styled-components';
+import { GoSearch } from 'react-icons/go';
 
-export const Form = styled.form`
+export const Wrap = styled.div`
     margin-top: 24px;
     margin-bottom: 20px;
     margin-left: 28px;
-`;
 
-export const Input = styled.input`
-    background-color: #fff;
+    input {
+        background-color: #fff;
     color:  #432A68 ;
     font-size: 16px;
     padding: 10px 24px;
@@ -17,4 +17,16 @@ export const Input = styled.input`
     border: 0;
     outline: 0;
     border-radius: 5em;
+    position: absolute;
+    }
+`;
+
+export const Icon = styled(GoSearch)`
+    width: 20px;
+    height: 20px;
+    position: relative;
+    z-index: 1;
+    opacity: 0.7;
+    left: 210px;
+    top: 10px;
 `;

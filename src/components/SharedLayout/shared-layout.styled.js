@@ -38,6 +38,12 @@ export const WrapIcon = styled.div`
     background-size: cover;
     position: relative;
     z-index: 1;
+
+    @media screen and (max-width: 360px) {
+       margin-right: 0px;
+       width: 45px;
+       height: 45px;
+    };
 `;
 
 export const List = styled.ul`
