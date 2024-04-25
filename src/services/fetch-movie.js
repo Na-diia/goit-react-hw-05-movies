@@ -25,6 +25,10 @@ export const getMovieCast = async (movieId) => {
    return response.data.cast;
 };
 
+export const getCastInformation = async (actorId) => {
+  const response = await axios.get(``)
+};
+
 export const getMovieReviews = async (movieId) => {
    const response = await axios.get(`movie/${movieId}/reviews?api_key=${apiKey}&language=en-US&page=1`);
    return response.data.results;
