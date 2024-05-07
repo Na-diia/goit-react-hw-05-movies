@@ -1,5 +1,6 @@
 import { useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { getMovieCast, baseImgUrl } from 'services/fetch-movie';
 
@@ -10,6 +11,8 @@ import defaultCastImg from '../../images/cast-default-img.jpg';
 const Cast = () => {
     const [items, setItems] = useState([]);
     const {movieId} = useParams();
+
+    const location = useLocation();
 
     useEffect(() => {
       if(items) {
@@ -28,7 +31,7 @@ const Cast = () => {
 
     const elements = items.map(({id, name, profile_path, character}) => 
         (<Item key={id}>
-          <ImageActors src={profile_path ? baseImgUrl + `${profile_path}` : defaultCastImg} alt={name} />
+<Link state={{from: location}} to={`/person/${id}`}><ImageActors src={profile_path ? baseImgUrl + `${profile_path}` : defaultCastImg} alt={name} /></Link>
           <Info>{name}</Info>
           <Character>{character}</Character>
         </Item>));

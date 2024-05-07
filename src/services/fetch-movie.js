@@ -25,8 +25,12 @@ export const getMovieCast = async (movieId) => {
    return response.data.cast;
 };
 
-
-
+export const getPersonInformation = async (personId) => {
+  const baseURL = 'https://api.themoviedb.org/3/person/';
+  const response = await axios.get(`${baseURL}${personId}?api_key=${apiKey}&language=en-US`);
+  console.log(response.data);
+  return response.data;
+};
 
 export const getMovieReviews = async (movieId) => {
    const response = await axios.get(`movie/${movieId}/reviews?api_key=${apiKey}&language=en-US&page=1`);
