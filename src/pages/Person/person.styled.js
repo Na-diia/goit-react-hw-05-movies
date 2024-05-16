@@ -4,6 +4,18 @@ import PropTypes from 'prop-types';
 import goBack from 'images/back.png';
 import background from 'images/background-img.jpg';
 
+export const Biography = styled.div`
+font-size: 20px;
+font-weight: 400;
+height: 170px;
+padding: 20px;
+overflow-y: scroll;
+border: 1px solid black;
+
+scroll-behavior: smooth;
+scrollbar-color: black lightgray;
+color: #000000 ;`;
+
 export const PersonBox = styled.div`
 max-width: 1200px;
 height: 100vh;
