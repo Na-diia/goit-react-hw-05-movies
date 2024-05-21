@@ -10,9 +10,9 @@ font-weight: 400;
 height: 170px;
 padding: 20px;
 overflow-y: scroll;
-border: 1px solid black;
+box-shadow: inset 0 0 5px grey;
+border-radius: 10px;
 
-scroll-behavior: smooth;
 scrollbar-color: black lightgray;
 color: #000000 ;`;
 
